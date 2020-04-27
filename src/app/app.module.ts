@@ -11,6 +11,7 @@ import { FiltersComponent } from './shopping-cart/filters/filters.component';
 import { CartComponent } from './shopping-cart/cart/cart.component';
 import { CartItemComponent } from './shopping-cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './shopping-cart/product-list/product-item/product-item.component';
+import {ProductService} from "./services/product.service";
 
 @NgModule({
   declarations: [
