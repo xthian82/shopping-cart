@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import {Product} from "../models/product";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+
+const apiUrl = 'http://localhost:8181/v1/products/mock';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-
+/*
   products: Product[] = [
     new Product(1, 'Product 1', 'This is the procut 1 description, totatlly cool!', 109),
     new Product(2, 'Product 2', 'This is the procut 2 description, totatlly cool!', 108),
@@ -16,11 +20,11 @@ export class ProductService {
     new Product(7, 'Product 7', 'This is the procut 7 description, totatlly cool!', 103),
     new Product(8, 'Product 8', 'This is the procut 8 description, totatlly cool!', 102),
     new Product(9, 'Product 9', 'This is the procut 9 description, totatlly cool!', 101)
-  ]
+  ]*/
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getProducts(): Product[] {
-    return this.products;
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(apiUrl);
   }
 }
